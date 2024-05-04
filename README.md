@@ -69,3 +69,93 @@ In this example:
 - Finally, we call the `displayPersonInfo` function with the `person1` object.
 
 Interfaces can also be extended and implemented by classes, providing a way to enforce consistency and structure across different parts of the codebase. They are widely used in TypeScript for defining contracts between different parts of the code or between modules in larger applications.
+
+
+
+### Use of Constructor in JavaScript
+
+In TypeScript, the constructor is a special type of method within a class that is automatically called when an instance of the class is created. It is primarily used for initializing the properties of the class or performing any setup tasks needed for the object.
+
+Here are the main uses of constructors in TypeScript:
+
+1. **Initializing Properties**:
+   Constructors are commonly used to initialize the properties of a class when an object is created. This helps ensure that the object starts with the correct initial state.
+
+   ```typescript
+   class Person {
+     name: string;
+
+     constructor(name: string) {
+       this.name = name;
+     }
+   }
+
+   const person = new Person('John');
+   console.log(person.name); // Output: John
+   ```
+
+2. **Parameter Initialization**:
+   Constructors can accept parameters, allowing you to pass values to initialize the properties of the class.
+
+   ```typescript
+   class Point {
+     x: number;
+     y: number;
+
+     constructor(x: number, y: number) {
+       this.x = x;
+       this.y = y;
+     }
+   }
+
+   const point = new Point(5, 10);
+   console.log(point.x, point.y); // Output: 5 10
+   ```
+
+3. **Performing Setup Tasks**:
+   Constructors can perform any necessary setup tasks or logic required for the object to function correctly.
+
+   ```typescript
+   class Calculator {
+     result: number;
+
+     constructor() {
+       this.result = 0; // Initialize result to 0 when Calculator object is created
+     }
+
+     add(num1: number, num2: number) {
+       this.result = num1 + num2;
+     }
+   }
+
+   const calculator = new Calculator();
+   calculator.add(5, 3);
+   console.log(calculator.result); // Output: 8
+   ```
+
+4. **Inheritance**:
+   Constructors are also used in inheritance to initialize properties of both the parent and child classes.
+
+   ```typescript
+   class Animal {
+     name: string;
+
+     constructor(name: string) {
+       this.name = name;
+     }
+   }
+
+   class Dog extends Animal {
+     breed: string;
+
+     constructor(name: string, breed: string) {
+       super(name); // Call the constructor of the parent class
+       this.breed = breed;
+     }
+   }
+
+   const dog = new Dog('Buddy', 'Labrador');
+   console.log(dog.name, dog.breed); // Output: Buddy Labrador
+   ```
+
+In summary, constructors in TypeScript are used for initializing properties, parameter initialization, performing setup tasks, and supporting inheritance. They help ensure that objects are correctly initialized and ready for use when created.
